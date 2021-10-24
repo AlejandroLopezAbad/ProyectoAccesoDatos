@@ -22,7 +22,13 @@ public class meteo {
         LectorCSV lector = new LectorCSV();
 
         lector.leerFichero(INPUT_CSV_datos_meteo_mes,"120");
-        System.out.println(registro.listaMunicipios);
+        lector.leerFichero(INPUT_CSV_datos_mes,"120");
+        lector.leerFichero(INPUT_CSV_zonas,"120");
+       // lector.leerFichero(INPUT_CSV_estaciones,"120");
+
+
+       // System.out.println("aqui va el registro");
+       // System.out.println(municipio.getCodigoMunicipio());
 
 
 

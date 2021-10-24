@@ -42,7 +42,7 @@ public class Municipio {
     }
 
     public void setCodigoMunicipio(String codigoMunicipio) {
-        this.codigoMunicipio = codigoMunicipio;
+        this.codigoMunicipio = codigoMunicipio;;
     }
 
     public String getEstacion() {

@@ -28,9 +28,12 @@ public class LectorCSV {
                 }
                 linea = bufferLectura.readLine();
                 muni.setCodigoMunicipio(csvfiltrado);
+                //tenjgo que meter todos los datos al objeto enten
                 registro.listaMunicipios.add(muni);
             }
             System.out.println(csvfiltrado);
+            System.out.println("Ahora se imprime la lista donde la he guardado");
+            System.out.println(muni.getCodigoMunicipio());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
