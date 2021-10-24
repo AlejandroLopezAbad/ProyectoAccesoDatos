@@ -1,16 +1,16 @@
 package Meteo;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Arrays;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LectorCSV {
-    public static final String SEPARADOR = ";";
-    //public static final char COMILLAS = '"';
 
-    public void leerFichero(String uri) {
+    RegistroMunicipios registro = new RegistroMunicipios();
+
+    Municipio muni = new Municipio();
+
+    public List<Municipio> leerFichero(String uri, String CodigoMunicipio) {
         BufferedReader bufferLectura = null;
         try {
             // Abrir el .csv en buffer de lectura
@@ -18,22 +18,17 @@ public class LectorCSV {
 
             // Leer una linea del archivo
             String linea = bufferLectura.readLine();
-            String csvfiltrado= "";
-            while (linea != null) {
-                //hay que cambiar luego por la variable
-                if(linea.matches(".*28005002.*")) {
-                    csvfiltrado=csvfiltrado+linea+"\n";
-                    // Sepapar la linea leída con el separador definido previamente
-                    String[] campos = linea.split(SEPARADOR);
-                   // campos[4]   con esto guardo las columnas que quiero que se mapeen par aguardar los datos
+            String csvfiltrado = "";
+
+            for (int i = 0; i < linea.length(); i++) {
+
+                if (linea.matches("28;" + CodigoMunicipio + ".*")) {
+                    csvfiltrado = csvfiltrado + linea + "\n";
+
                 }
-
-
-              //  System.out.println(Arrays.toString(campos));
-              //  System.out.println(Arrays.toString(campos));
-
-                // Volver a leer otra línea del fichero
                 linea = bufferLectura.readLine();
+                muni.setCodigoMunicipio(csvfiltrado);
+                registro.listaMunicipios.add(muni);
             }
             System.out.println(csvfiltrado);
         } catch (IOException e) {
@@ -48,7 +43,9 @@ public class LectorCSV {
                 }
             }
         }
+        return registro.listaMunicipios;
     }
+
 }
 
 

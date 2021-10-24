@@ -3,6 +3,7 @@ package Meteo;
 import java.io.File;
 
 
+
 public class meteo {
 
     public static void main(String[] args) {
@@ -16,15 +17,15 @@ public class meteo {
         System.out.println(INPUT_CSV_estaciones);
         System.out.println(INPUT_CSV_zonas);
 
+        RegistroMunicipios registro = new RegistroMunicipios();
+        Municipio municipio = new Municipio();
         LectorCSV lector = new LectorCSV();
-        //lector.leerFichero(INPUT_CSV_estaciones);
-        lector.leerFichero(INPUT_CSV_datos_meteo_mes);
+
+        lector.leerFichero(INPUT_CSV_datos_meteo_mes,"120");
+        System.out.println(registro.listaMunicipios);
 
 
 
-
-     // Ayuda papito = new Ayuda();
-        //papito.filtrado();
 
 
     }
